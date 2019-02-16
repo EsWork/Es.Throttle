@@ -1,0 +1,19 @@
+<Project>
+  <Import Project="dependencies.props" />
+  <Import Project="version.props" />
+
+  <PropertyGroup>
+    <Description>rate limit</Description>
+    <Product>Throttle libraries</Product>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)Es.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>True</SignAssembly>
+    <PublicSign Condition="'$(OS)' != 'Windows_NT'">true</PublicSign>
+
+    <Authors>EsWork;v.la@live.cn</Authors>
+    <PackageTags>rate limit;throttle</PackageTags>
+  </PropertyGroup>
+
+</Project>
