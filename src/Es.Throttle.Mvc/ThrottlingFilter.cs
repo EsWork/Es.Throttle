@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 
@@ -21,18 +20,16 @@ namespace Es.Throttle.Mvc
     {
         private const int StatusCode = 429;
 
-        private readonly ILogger _logger;
         private readonly IRateLimiter _rateLimiter;
         private readonly IThrottleService _throttleService;
 
         private readonly ThrottleOptions _throttleOptions;
 
-        public ThrottlingFilter(ILoggerFactory loggerFactory,
+        public ThrottlingFilter(
             IRateLimiter rateLimiter,
             IThrottleService throttleService,
             IOptionsSnapshot<ThrottleOptions> throttleOptions)
         {
-            _logger = loggerFactory.CreateLogger<ThrottlingFilter>();
             _throttleOptions = throttleOptions.Value;
             _rateLimiter = rateLimiter;
             _throttleService = throttleService;

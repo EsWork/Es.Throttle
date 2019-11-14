@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A35B39F6-C876-40EB-939C-D8F0F54653B7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spware.Throttle.Mvc.Test", "tests\Spware.Throttle.Mvc.Test\Spware.Throttle.Mvc.Test.csproj", "{6003FD9B-5E52-424C-8520-E6F1EA8A950D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTest", "tests\ConsoleTest\ConsoleTest.csproj", "{A0B0125E-0ABC-4CD5-B0CF-EBFDB7A201AE}"
 EndProject
@@ -23,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6003FD9B-5E52-424C-8520-E6F1EA8A950D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6003FD9B-5E52-424C-8520-E6F1EA8A950D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6003FD9B-5E52-424C-8520-E6F1EA8A950D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6003FD9B-5E52-424C-8520-E6F1EA8A950D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A0B0125E-0ABC-4CD5-B0CF-EBFDB7A201AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A0B0125E-0ABC-4CD5-B0CF-EBFDB7A201AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0B0125E-0ABC-4CD5-B0CF-EBFDB7A201AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -48,7 +42,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6003FD9B-5E52-424C-8520-E6F1EA8A950D} = {A35B39F6-C876-40EB-939C-D8F0F54653B7}
 		{A0B0125E-0ABC-4CD5-B0CF-EBFDB7A201AE} = {A35B39F6-C876-40EB-939C-D8F0F54653B7}
 		{955C41A6-84FC-4CB3-A4CA-3055C6FDF3F3} = {33A3A0C6-5FA2-44CF-B342-E2778B3493B7}
 	EndGlobalSection

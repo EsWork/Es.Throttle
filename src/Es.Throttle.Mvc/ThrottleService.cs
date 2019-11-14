@@ -123,13 +123,15 @@ namespace Es.Throttle.Mvc
             // UserAgent rate limit
             if (_throttlePolicy.UserAgentRules?.Count > 0)
             {
-                foreach (var entry in _throttlePolicy.UserAgentRules)
+                var userAgent = requestContext.Request.Headers["User-Agent"];
+                if (userAgent.Count > 0)
                 {
-                    var userAgent = requestContext.Request.Headers["User-Agent"];
-                    if (userAgent.Count == 0) continue;
-                    if (userAgent.ToString().IndexOf(entry.Key, 0, StringComparison.OrdinalIgnoreCase) != -1)
+                    foreach (var entry in _throttlePolicy.UserAgentRules)
                     {
-                        yield return entry.Value;
+                        if (userAgent.ToString().IndexOf(entry.Key, 0, StringComparison.OrdinalIgnoreCase) != -1)
+                        {
+                            yield return entry.Value;
+                        }
                     }
                 }
             }
@@ -137,10 +139,9 @@ namespace Es.Throttle.Mvc
             // RequestPath rate limit
             if (_throttlePolicy.RequestPathRules?.Count > 0)
             {
-                var ipAddress = requestContext.RequestIP;
+                var requestPath = requestContext.Request.Path;
                 foreach (var entry in _throttlePolicy.RequestPathRules)
                 {
-                    var requestPath = requestContext.Request.Path;
                     if (requestPath.Value.IndexOf(entry.Key, 0, StringComparison.OrdinalIgnoreCase) != -1)
                     {
                         yield return entry.Value;

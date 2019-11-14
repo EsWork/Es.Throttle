@@ -1,11 +1,9 @@
-﻿using Microsoft.Extensions.Options;
-
-namespace Es.Throttle.Mvc
+﻿namespace Es.Throttle.Mvc
 {
     /// <summary>
     /// 节流选项
     /// </summary>
-    public class ThrottleOptions 
+    public class ThrottleOptions
     {
         /// <summary>
         /// 开启全局节流过滤

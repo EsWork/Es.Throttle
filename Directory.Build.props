@@ -1,0 +1,38 @@
+<Project>
+
+  <PropertyGroup>
+    <Version>$(Ver)</Version>
+    <PackageVersion>$(Ver)</PackageVersion> 
+    <Copyright>2019 Es Inc.</Copyright>
+    <Authors>EasyWork;v.la@live.cn</Authors>
+    <Description>Es.Throttle</Description>
+    <Product>Es.Throttle</Product>
+    
+      
+    <PackageOutputPath>$(MSBuildThisFileDirectory)/artifacts</PackageOutputPath>
+    <PackageTags>Es.Throttle</PackageTags>
+    <LangVersion>latest</LangVersion>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageIconUrl>http://s.gravatar.com/avatar/28dfa5190889f7190e74b683fc30b827?s=80</PackageIconUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageLicenseType>MIT</PackageLicenseType>
+
+    <RepositoryUrl>https://github.com/EsWork/Es.Throttle</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryBranch>master</RepositoryBranch> 
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' != 'Debug' ">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup>
+   
+    <SignAssembly>True</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)/build/Es.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>  
+
+</Project>
