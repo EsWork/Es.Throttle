@@ -7,9 +7,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Es.Throttle;
 using Es.Throttle.Mvc;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Logging;
 
 namespace Demo.Controllers
 {
+
     public class HomeController : Controller
     {
         [EnableThrottling(3, 3, RateLimitPeriod.Sec)]

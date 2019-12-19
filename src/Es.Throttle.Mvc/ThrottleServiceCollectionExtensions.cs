@@ -48,7 +48,7 @@ namespace Microsoft.Extensions.DependencyInjection
             }
 
             services.AddSingleton<IRateLimiter, RateLimiter>();
-            services.AddScoped<IThrottleService, ThrottleService>();
+            services.AddTransient<IThrottleService, ThrottleService>();
             services.AddScoped<ThrottlingFilter>();
             services.Configure<MvcOptions>(opt =>
             {
@@ -94,7 +94,7 @@ namespace Microsoft.Extensions.DependencyInjection
             }
 
             services.AddSingleton<IRateLimiter, RateLimiter>();
-            services.AddScoped<IThrottleService, ThrottleService>();
+            services.AddTransient<IThrottleService, ThrottleService>();
             services.AddScoped<ThrottlingFilter>();
             services.Configure<MvcOptions>(opt =>
             {
@@ -117,7 +117,7 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 throw new ArgumentNullException(nameof(services));
             }
-            services.Replace(ServiceDescriptor.Scoped<IThrottleService, T>());
+            services.Replace(ServiceDescriptor.Transient<IThrottleService, T>());
             return services;
         }
     }
