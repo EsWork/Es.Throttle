@@ -137,7 +137,14 @@ namespace Es.Throttle.Mvc
 
         protected virtual IPAddress GetClientIP(HttpContext context, bool filterPrivateIP = false)
         {
-            var ipAddress = context.Features.Get<IHttpConnectionFeature>().RemoteIpAddress;
+            var httpConnectionFeature = context.Features.Get<IHttpConnectionFeature>();
+
+            if (httpConnectionFeature == null)
+            {
+                return IPAddress.Loopback;
+            }
+
+            var ipAddress = httpConnectionFeature.RemoteIpAddress;
 
             if (context?.Request?.Headers?.TryGetValue("X-Forwarded-For", out StringValues xForwardedFor) ?? false)
             {
