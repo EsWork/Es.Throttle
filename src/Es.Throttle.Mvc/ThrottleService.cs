@@ -13,6 +13,10 @@ namespace Es.Throttle.Mvc
     {
         private readonly ThrottlePolicy _throttlePolicy;
 
+
+        private readonly static Task<bool> True = Task.FromResult(true);
+        private readonly static Task<bool> False = Task.FromResult(false);
+
         public ThrottleService(IOptionsSnapshot<ThrottleOptions> throttleOptions)
         {
             _throttlePolicy = throttleOptions.Value.Policy;
@@ -65,7 +69,7 @@ namespace Es.Throttle.Mvc
                         if (ipAddress.AddressFamily != begin.AddressFamily) return false;
                         var adrBytes = ipAddress.GetAddressBytes();
                         return Bits.GE(begin.GetAddressBytes(), adrBytes) && Bits.LE(end.GetAddressBytes(), adrBytes);
-                    })) return Task.FromResult(true);
+                    })) return True;
                 }
 
                 if (_throttlePolicy.EnableRequestPath)
@@ -74,7 +78,7 @@ namespace Es.Throttle.Mvc
                     if (_throttlePolicy.RequestPathWhitelist != null && _throttlePolicy.RequestPathWhitelist.Any(white =>
                     {
                         return requestPath.Value.IndexOf(white, 0, StringComparison.OrdinalIgnoreCase) != -1;
-                    })) return Task.FromResult(true);
+                    })) return True;
                 }
 
                 if (_throttlePolicy.EnableUserAgent)
@@ -83,16 +87,16 @@ namespace Es.Throttle.Mvc
 
                     //禁止无效的User-Agent访问
                     if (userAgent.Count == 0)
-                        return Task.FromResult(true);
+                        return True;
 
                     if (_throttlePolicy.UserAgentWhitelist != null && _throttlePolicy.UserAgentWhitelist.Any(white =>
                     {
                         return userAgent.ToString().IndexOf(white, 0, StringComparison.OrdinalIgnoreCase) != -1;
-                    })) return Task.FromResult(true);
+                    })) return True;
                 }
             }
 
-            return Task.FromResult(false);
+            return False;
         }
 
         public Task<IEnumerable<RateQuota>> GetRateQuota(RequestContext requestContext)
