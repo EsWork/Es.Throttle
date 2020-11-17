@@ -146,7 +146,7 @@ namespace Es.Throttle.Mvc
 
             var ipAddress = httpConnectionFeature.RemoteIpAddress;
 
-            if (context?.Request?.Headers?.TryGetValue("X-Forwarded-For", out StringValues xForwardedFor) ?? false)
+            if (context.Request.Headers.TryGetValue("X-Forwarded-For", out StringValues xForwardedFor))
             {
                 if (!StringValues.IsNullOrEmpty(xForwardedFor))
                 {

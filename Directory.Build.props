@@ -2,24 +2,25 @@
 
   <PropertyGroup>
     <Version>$(Ver)</Version>
-    <PackageVersion>$(Ver)</PackageVersion> 
+    <PackageVersion>$(Ver)</PackageVersion>
     <Copyright>2019 Es Inc.</Copyright>
     <Authors>EasyWork;v.la@live.cn</Authors>
     <Description>Es.Throttle</Description>
     <Product>Es.Throttle</Product>
-    
-      
+
+
     <PackageOutputPath>$(MSBuildThisFileDirectory)/artifacts</PackageOutputPath>
     <PackageTags>Es.Throttle</PackageTags>
     <LangVersion>latest</LangVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageIconUrl>http://s.gravatar.com/avatar/28dfa5190889f7190e74b683fc30b827?s=80</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
+
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageLicenseType>MIT</PackageLicenseType>
 
     <RepositoryUrl>https://github.com/EsWork/Es.Throttle</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryBranch>master</RepositoryBranch> 
+    <RepositoryBranch>master</RepositoryBranch>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
 
   </PropertyGroup>
@@ -29,10 +30,15 @@
   </PropertyGroup>
 
   <PropertyGroup>
-   
+
     <SignAssembly>True</SignAssembly>
     <DelaySign>False</DelaySign>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)/build/Es.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>  
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)/build/icon.png" Pack="true" PackagePath=""/>
+  </ItemGroup>
 
 </Project>
