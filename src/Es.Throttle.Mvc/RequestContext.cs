@@ -8,12 +8,12 @@ namespace Es.Throttle.Mvc
     /// </summary>
     public class RequestContext
     {
-        public HttpRequest Request { get; set; }
+        public HttpRequest Request { get; set; } = default!;
 
-        public IPAddress RequestIP { get; set; }
+        public IPAddress RequestIP { get; set; } = default!;
 
-        public string ControllerName { get; set; }
+        public string? ControllerName { get; set; }
 
-        public string ActionName { get; set; }
+        public string? ActionName { get; set; }
     }
 }

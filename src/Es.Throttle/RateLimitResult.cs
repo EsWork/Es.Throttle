@@ -74,12 +74,12 @@ namespace Es.Throttle
                 RetryAfter.GetHashCode());
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return Equals(obj as RateLimitResult);
         }
 
-        public virtual bool Equals(RateLimitResult other)
+        public virtual bool Equals(RateLimitResult? other)
         {
             if (other == null)
                 return false;

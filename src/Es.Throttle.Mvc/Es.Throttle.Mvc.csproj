@@ -5,6 +5,8 @@
 		<AssemblyName>Es.Throttle.Mvc</AssemblyName>
 		<PackageId>Es.Throttle.Mvc</PackageId>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Nullable>enable</Nullable>
+		<NullableReferenceTypes>true</NullableReferenceTypes>
 		<NoWarn>$(NoWarn);CS1591</NoWarn>
 	</PropertyGroup>
 

@@ -47,7 +47,7 @@ namespace Es.Throttle.Mvc
                 throw new ArgumentNullException(nameof(next));
             }
 
-            var applyThrottling = ApplyThrottling(context, out EnableThrottlingAttribute enableThrottlingAttribute);
+            var applyThrottling = ApplyThrottling(context, out var enableThrottlingAttribute);
 
             if (applyThrottling)
             {
@@ -144,7 +144,7 @@ namespace Es.Throttle.Mvc
                 return IPAddress.Loopback;
             }
 
-            var ipAddress = httpConnectionFeature.RemoteIpAddress;
+            var ipAddress = httpConnectionFeature.RemoteIpAddress?? IPAddress.Loopback;
 
             if (context.Request.Headers.TryGetValue("X-Forwarded-For", out StringValues xForwardedFor))
             {
@@ -152,7 +152,7 @@ namespace Es.Throttle.Mvc
                 {
                     var forwardingIps = xForwardedFor.ToString().Split(',').Select(s =>
                     {
-                        return IPAddress.TryParse(s, out IPAddress ipd) ? ipd : null;
+                        return IPAddress.TryParse(s, out var ipd) ? ipd : IPAddress.Loopback;
                     }).ToList();
 
                     if (filterPrivateIP)
@@ -162,7 +162,7 @@ namespace Es.Throttle.Mvc
 
                     if (forwardingIps.Any())
                     {
-                        return forwardingIps.FirstOrDefault();
+                        return forwardingIps.First();
                     }
 
                     return ipAddress;
@@ -171,7 +171,7 @@ namespace Es.Throttle.Mvc
             return ipAddress;
         }
 
-        private bool ApplyThrottling(ActionExecutingContext context, out EnableThrottlingAttribute throttlingAttribute)
+        private bool ApplyThrottling(ActionExecutingContext context, out EnableThrottlingAttribute? throttlingAttribute)
         {
             throttlingAttribute = null;
 

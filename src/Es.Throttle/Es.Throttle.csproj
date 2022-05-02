@@ -1,9 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net462;net5.0;net6.0</TargetFrameworks>
-    <AssemblyName>Es.Throttle</AssemblyName>
-    <PackageId>Es.Throttle</PackageId>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);CS1591</NoWarn>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net462;net5.0;net6.0</TargetFrameworks>
+		<AssemblyName>Es.Throttle</AssemblyName>
+		<PackageId>Es.Throttle</PackageId>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Nullable>enable</Nullable>
+		<NullableReferenceTypes>true</NullableReferenceTypes>
+		<NoWarn>$(NoWarn);CS1591</NoWarn>
+	</PropertyGroup>
 </Project>

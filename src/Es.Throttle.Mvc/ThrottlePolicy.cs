@@ -30,31 +30,31 @@ namespace Es.Throttle.Mvc
         /// <summary>
         /// IP白名单
         /// </summary>
-        public IList<string> IpWhitelist { get; set; }
+        public IList<string> IpWhitelist { get; set; } = new List<string>();
 
         /// <summary>
         /// UserAgent白名单
         /// </summary>
-        public IList<string> UserAgentWhitelist { get; set; }
+        public IList<string> UserAgentWhitelist { get; set; } = new List<string>();
 
         /// <summary>
         /// RequestPath白名单
         /// </summary>
-        public IList<string> RequestPathWhitelist { get; set; }
+        public IList<string> RequestPathWhitelist { get; set; } = new List<string>();
 
         /// <summary>
         /// 自定义UserAgent限制规则
         /// </summary>
-        public Dictionary<string, RateQuota> UserAgentRules { get; set; }
+        public Dictionary<string, RateQuota> UserAgentRules { get; set; } = new Dictionary<string, RateQuota>();
 
         /// <summary>
         /// 自定义IP限制规则
         /// </summary>
-        public Dictionary<string, RateQuota> IPRules { get; set; }
+        public Dictionary<string, RateQuota> IPRules { get; set; } = new Dictionary<string, RateQuota>();
 
         /// <summary>
         /// 自定义RequestPath限制规则
         /// </summary>
-        public Dictionary<string, RateQuota> RequestPathRules { get; set; }
+        public Dictionary<string, RateQuota> RequestPathRules { get; set; } = new Dictionary<string, RateQuota>();
     }
 }

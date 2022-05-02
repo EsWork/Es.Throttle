@@ -18,6 +18,6 @@
         /// <summary>
         /// 节流政策
         /// </summary>
-        public ThrottlePolicy Policy { get; set; }
+        public ThrottlePolicy Policy { get; set; } = new ThrottlePolicy();
     }
 }

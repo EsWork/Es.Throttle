@@ -77,7 +77,7 @@ namespace Es.Throttle.Mvc
                     var requestPath = requestContext.Request.Path;
                     if (_throttlePolicy.RequestPathWhitelist != null && _throttlePolicy.RequestPathWhitelist.Any(white =>
                     {
-                        return requestPath.Value.IndexOf(white, 0, StringComparison.OrdinalIgnoreCase) != -1;
+                        return requestPath.Value?.IndexOf(white, 0, StringComparison.OrdinalIgnoreCase) != -1;
                     })) return True;
                 }
 
@@ -146,7 +146,7 @@ namespace Es.Throttle.Mvc
                 var requestPath = requestContext.Request.Path;
                 foreach (var entry in _throttlePolicy.RequestPathRules)
                 {
-                    if (requestPath.Value.IndexOf(entry.Key, 0, StringComparison.OrdinalIgnoreCase) != -1)
+                    if (requestPath.Value?.IndexOf(entry.Key, 0, StringComparison.OrdinalIgnoreCase) != -1)
                     {
                         yield return entry.Value;
                     }
